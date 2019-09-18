@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manifold + Render</title>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="/favicon.ico" rel="shortcut icon"/>
+    <link href="/styles.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>
+        Manifold + Render
+      </h1>
+    </header>
+
+    <main>
+      <form action="/api/log" class="form" method="POST">
+        <label>
+          <span class="label">
+            <img alt="LogDNA" height="24" src="logdna.png" width="24"/>
+            &nbsp;
+                        Log</span>
+          <input class="input" maxlength="100" name="log" type="text">
+        </label>
+        <button class="btn" type="submit">Submit</button>
+      </form>
+
+      <div class="status" id="status">Logged: this</div>
+    </main>
+    <script>
+      const form = document.querySelector('form');
+      form.addEventListener('submit', evt => {
+        evt.preventDefault();
+        const input = document.querySelector('[name="log"]');
+        fetch(form.getAttribute('action'), {
+          method: 'POST',
+          headers: { 'Content-type': 'application/json' },
+          body: JSON.stringify({ log: input.value }),
+        })
+          .then(res => res.text())
+          .then(res => {
+            input.value = '';
+            input.focus();
+            const status = document.querySelector('#status');
+            status.classList.add('is-visible');
+            status.innerText = res;
+            setTimeout(() => status.classList.remove('is-visible'), 5000);
+          })
+          .catch(e => console.error(e));
+      });
+    </script>
+  </body>
+</html>
+  </body>
+  </body>
+</html>
+  </body>
+</html>
