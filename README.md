@@ -1,10 +1,12 @@
 # Express example app
 
+![](./.github/express-hello-world.png)
+
 ## 🔧 Setup
 
 First install all dependencies:
 
-```
+```bash
 npm i
 ```
 
@@ -17,3 +19,11 @@ Dashboard:
 ACCOUNT=MY_ACCOUNT_ID
 KEY=MY_SECRET_KEY
 ```
+
+Lastly, start the server:
+
+```bash
+npm run start
+```
+
+You’ll be up and running at `localhost:3001`.
