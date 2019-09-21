@@ -29,6 +29,7 @@
       <div class="status" id="status">Logged: this</div>
     </main>
     <script>
+      let t;
       const form = document.querySelector('form');
       form.addEventListener('submit', evt => {
         evt.preventDefault();
@@ -40,12 +41,13 @@
         })
           .then(res => res.text())
           .then(res => {
+            clearTimeout(t);
             input.value = '';
             input.focus();
             const status = document.querySelector('#status');
             status.classList.add('is-visible');
             status.innerText = res;
-            setTimeout(() => status.classList.remove('is-visible'), 5000);
+            t = setTimeout(() => status.classList.remove('is-visible'), 5000);
           })
           .catch(e => console.error(e));
       });
