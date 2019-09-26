@@ -1,25 +1,29 @@
-# README
+# Express example app
 
-This is the [Express](https://expressjs.com) [Hello world](https://expressjs.com/en/starter/hello-world.html) example on [Render](https://render.com).
+![](./.github/express-hello-world.png)
 
-The app in this repo is deployed at [https://express.onrender.com](https://express.onrender.com).
+## 🔧 Setup
 
-## Deployment
+First install all dependencies:
 
-Create a new web service with the following values:
-  * Build Command: `yarn`
-  * Start Command: `node app.js`
-
-That's it! Your web service will be live on your Render URL as soon as the build finishes.
-
-## Node versions
-By default, Render uses the latest LTS version of Node.
-
-It can also automatically detects and install the version of Node specified in the [engines](https://docs.npmjs.com/files/package.json#engines) directive in `package.json`. This can be an exact version like `10.11.0` or a range like `>=10.11 <10.12`.
-
-This is the relevant snippet from `package.json` in this repo:
-```json
-  "engines": {
-    "node": ">=10 <11"
-  }
+```bash
+npm i
 ```
+
+Next, copy `.env.example` to `.env`, and enter in your LogDNA credentials from your Render
+Dashboard:
+
+![Credentials from Render](./.github/render-logdna.png)
+
+```env
+ACCOUNT=MY_ACCOUNT_ID
+KEY=MY_SECRET_KEY
+```
+
+Lastly, start the server:
+
+```bash
+npm run start
+```
+
+You’ll be up and running at `localhost:3001`.
